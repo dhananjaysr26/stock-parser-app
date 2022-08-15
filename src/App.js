@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import Axios from "axios";
+import { useEffect, useState } from "react";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 
-function App() {
+import Home from "./pages/Home";
+import Page from "./pages/Page";
+import Criteria from "./pages/Criteria";
+import Variable from "./pages/Variable";
+import "./App.css";
+
+export default function App() {
+  const [stockData, setStockData] = useState([]);
+  useEffect(() => {
+    Axios.get("https://mobile-app-challenge.herokuapp.com/data").then((res) => {
+      // console.log(res.data);
+      setStockData(res.data);
+    });
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {stockData ? (
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/page" element={<Page stockData={stockData} />} />
+          <Route path="/page/:stockId" element={<Criteria stockData={stockData} />} />
+          <Route
+            path="/page/:stockId/:criteriaId/:variableId"
+            element={<Variable stockData={stockData} />}
+          />
+        </Routes>
+      ) : (
+        ""
+      )}
+    </Router>
   );
 }
-
-export default App;
