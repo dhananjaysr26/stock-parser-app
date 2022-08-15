@@ -8,7 +8,7 @@ const Page = ({ stockData }) => {
                     return (
                         <li key={i}>
                             <Link to={`${data.id}`}>{data.name}</Link>
-                            <small style={{ color: `${data.color}`, display: "block" }}>
+                            <small data-testid={data.tag} style={{ color: `${data.color}`, display: "block" }}>
                                 {data.tag}
                             </small>
                         </li>
