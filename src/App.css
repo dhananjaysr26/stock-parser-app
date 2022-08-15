@@ -1,31 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Helvitica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Poppins", "Helvitica Neue", Helvetica, Arial, sans-serif;
 }
 
 .App {
-  max-width: 450px;
+  max-width: 500px;
+  min-height: 400px;
   margin: 5% auto;
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   padding: 12px;
-  background: #67a1b9;
+  background: #2d3b41;
 }
+/* HOME */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.card-title {
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+}
+.card-btn {
+}
+.card-btn button {
+  height: 30px;
+  width: 100px;
+  margin: 10px;
+  padding: 5px;
+  font-size: medium;
+  font-weight: bold;
+  border-radius: 5px;
+  color: #07aff7;
+  border: none;
+  outline: none;
+}
+.card-btn button:focus {
+  outline: none;
+}
+.card-btn button:hover {
+  cursor: pointer;
+  background-color: #07aff7;
+  color: white;
+}
+/* Page */
 .App ul {
   padding: 10px;
 }
-.App ul li {
+.App ul .list {
   padding: 10px;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid white;
+  border-bottom-style: dotted;
+  list-style: circle;
+  color: aliceblue;
 }
-.App ul li a {
+.App ul .list a {
   text-decoration: none;
   color: white;
 }
+/* Criteria */
 .criteria-head {
   padding: 10px;
   height: 10%;
-  background-color: #07aff7;
+  background-color: #0696d3;
+  color: white;
+}
+.criteria-head small {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.criteria-list {
+  color: white;
+  list-style: none;
+  font-size: 0.9em;
+}
+.criteria-list small {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.criteria-list a {
+  color: rgb(5, 19, 206);
+}
+
+/* Variable */
+.indicator {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  color: white;
+  width: 100%;
+}
+.indicator h2 {
+  text-transform: uppercase;
+}
+.indicator p {
+  font-weight: 400;
+}
+.input-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  color: black;
+}
+.input-container input {
+  width: 50%;
+  height: 2.5em;
+  padding: 2px;
+}
+.input-container .input-label {
+  width: 50%;
+  text-transform: capitalize;
 }

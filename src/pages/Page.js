@@ -6,7 +6,7 @@ const Page = ({ stockData }) => {
             <ul>
                 {stockData.map((data, i) => {
                     return (
-                        <li key={i}>
+                        <li key={i} className="list">
                             <Link to={`${data.id}`}>{data.name}</Link>
                             <small data-testid={data.tag} style={{ color: `${data.color}`, display: "block" }}>
                                 {data.tag}

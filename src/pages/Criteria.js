@@ -20,13 +20,17 @@ const Criteria = ({ stockData }) => {
                             ? subData[0].criteria.map((Cdata, ci) => {
                                 let textArray = Cdata.text.split("$");
                                 return (
-                                    <li key={ci}>
+                                    <li key={ci} className="criteria-list">
                                         {textArray.map((Tdata, i) => {
+                                            if (textArray.length > 1) {
+                                                let variableAccessor = `$${1 + variableCount}`;
+                                                var link = Cdata.variable[variableAccessor].hasOwnProperty('values') ? Cdata.variable[variableAccessor].values[0] : Cdata.variable[variableAccessor].default_value
+                                            }
                                             return (
                                                 <span key={i}>
                                                     {parseInt(Tdata[0]) && textArray.length > 1 ? (
                                                         <Link to={`/page/${stockId}/${ci}/${++variableCount}`}>
-                                                            <u style={{ marginRight: "10px" }}>{Tdata}</u>
+                                                            ({link}){Tdata.slice(2)}
                                                         </Link>
                                                     ) : (
                                                         Tdata
@@ -35,7 +39,7 @@ const Criteria = ({ stockData }) => {
                                             );
                                         })}
                                         {1 + ci < subData[0].criteria.length && (
-                                            <small style={{ display: "block" }}>and</small>
+                                            <small>and</small>
                                         )}
                                     </li>
                                 );
