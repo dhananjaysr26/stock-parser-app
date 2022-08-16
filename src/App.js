@@ -11,7 +11,7 @@ import "./App.css";
 export default function App() {
   const [stockData, setStockData] = useState([]);
   useEffect(() => {
-    Axios.get("https://mobile-app-challenge.herokuapp.com/data").then((res) => {
+    Axios.get("https://stock-parser-server.herokuapp.com/data").then((res) => {
       // console.log(res.data);
       setStockData(res.data);
     });
